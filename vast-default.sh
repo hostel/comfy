@@ -27,7 +27,6 @@ NODES=(
     "https://github.com/TinyTerra/ComfyUI_tinyterraNodes"
     "https://github.com/ssitu/ComfyUI_UltimateSDUpscale"
     "https://github.com/sipherxyz/comfyui-art-venture"
-    "https://github.com/crystian/ComfyUI-Crystools"
     "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
     "https://github.com/yolain/ComfyUI-Easy-Use"
     "https://github.com/kijai/ComfyUI-Florence2"
