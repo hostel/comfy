@@ -54,20 +54,9 @@ NODES=(
 )
 
 WORKFLOWS=(
-
 )
 
 CHECKPOINT_MODELS=(
-    "https://civitai.com/api/download/models/782002?type=Model&format=SafeTensor&size=full&fp=fp16" # Juggernaut-XI-byRunDiffusion.safetensors
-    "https://civitai.com/api/download/models/501240?type=Model&format=SafeTensor&size=full&fp=fp16" # Realistic Vision V6.0 B1.safetensors
-    "https://civitai.com/api/download/models/90072?type=Model&format=SafeTensor&size=pruned&fp=fp16" # photon_v1.safetensors
-    "https://civitai.com/api/download/models/274039?type=Model&format=SafeTensor&size=pruned&fp=fp16" # juggernaut_reborn.safetensors
-    "https://civitai.com/api/download/models/127207?type=Model&format=SafeTensor&size=pruned&fp=fp16" # juggernaut_aftermath.safetensors
-    "https://civitai.com/api/download/models/143906?type=Model&format=SafeTensor&size=pruned&fp=fp16" # epicrealism_naturalSinRC1VAE.safetensors
-    "https://civitai.com/api/download/models/798204?type=Model&format=SafeTensor&size=full&fp=fp32" # RealVisXL_V5.0_fp32.safetensors
-
-    "https://huggingface.co/Kijai/SUPIR_pruned/resolve/main/SUPIR-v0Q_fp16.safetensors" # SUPIR-v0Q_fp16.safetensors
-    # "https://civitai.com/api/download/models/798204?type=Model&format=SafeTensor&size=full&fp=fp16"
 )
 
 UNET_MODELS=(
@@ -77,70 +66,104 @@ LORA_MODELS=(
 )
 
 VAE_MODELS=(
-    "https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors"
-    "https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/ae.safetensors"
 )
 
 UPSCALE_MODELS=(
-    "https://huggingface.co/uwg/upscaler/resolve/main/ESRGAN/4x_NMKD-Siax_200k.pth"
-    "https://civitai.com/api/download/models/164874?type=Model&format=PickleTensor" # RealESR General WDN x4
 )
 
 CONTROLNET_MODELS=(
-    # 1.5
-    "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/2539cb1d852087f5ef3fb7d12c859d1589d6e2be/control_v11e_sd15_ip2p_fp16.safetensors"
-    "https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_v11f1e_sd15_tile_fp16.safetensors"
-    "https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_v11f1p_sd15_depth_fp16.safetensors"
-    "https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_v11p_sd15_canny_fp16.safetensors"
-    "https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_v11p_sd15_inpaint_fp16.safetensors"
-    "https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_v11p_sd15_lineart_fp16.safetensors"
-    "https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_v11p_sd15_openpose_fp16.safetensors"
-    "https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_v11u_sd15_tile_fp16.safetensors"
 )
 
 CLIP_MODELS=(
-    "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors"
-    "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors"
 )
 
 CLIP_VISION_MODELS=(
-    "https://huggingface.co/XuminYu/example_safetensors/resolve/4b89d7ebd99a9913f0abbec4bf0f54932b11d243/CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors"
-    "https://huggingface.co/laion/CLIP-ViT-H-14-laion2B-s32B-b79K/blob/main/open_clip_model.safetensors" # CLIP-ViT-H-14-laion2B-s32B-b79K 
 )
-
 
 function transfer_start_files() {
     START_DIR="${WORKSPACE}/start"
     if [[ -d "$START_DIR" ]]; then
-        echo "Found start dir: $START_DIR"
+        echo "Found directory start: $START_DIR"
 
         if [[ -d "$START_DIR/workflows" ]]; then
             TARGET_WORKFLOWS="${COMFYUI_DIR}/user/default/workflows"
-            echo "move $START_DIR/workflows in $TARGET_WORKFLOWS"
+            echo "Moving content $START_DIR/workflows in $TARGET_WORKFLOWS"
             mv "$START_DIR/workflows/"* "$TARGET_WORKFLOWS/"
         else
-            echo "The workflows directory was not found in $START_DIR"
+            echo "Directory workflows not found in $START_DIR"
         fi
 
         if [[ -d "$START_DIR/input" ]]; then
             TARGET_INPUT="${COMFYUI_DIR}/input"
-            echo "move $START_DIR/input in $TARGET_INPUT"
+            echo "Moving content $START_DIR/input in $TARGET_INPUT"
             mv "$START_DIR/input/"* "$TARGET_INPUT/"
         else
-            echo "The input directory was not found in $START_DIR"
+            echo "Directory input not found in $START_DIR"
         fi
 
         if [[ -d "$START_DIR/loras" ]]; then
             TARGET_LORAS="${COMFYUI_DIR}/models/loras"
-            echo "move $START_DIR/loras in $TARGET_LORAS"
+            echo "Moving content $START_DIR/loras in $TARGET_LORAS"
             mv "$START_DIR/loras/"* "$TARGET_LORAS/"
         else
-            echo "The loras directory was not found in $START_DIR"
+            echo "Directory loras not found in $START_DIR"
         fi
+
+        if [[ -d "$START_DIR/checkpoints" ]]; then
+            TARGET_CHECKPOINTS="${COMFYUI_DIR}/models/checkpoints"
+            echo "Moving content $START_DIR/checkpoints in $TARGET_CHECKPOINTS"
+            mv "$START_DIR/checkpoints/"* "$TARGET_CHECKPOINTS/"
+        else
+            echo "Directory checkpoints not found in $START_DIR"
+        fi
+
+        if [[ -d "$START_DIR/clip" ]]; then
+            TARGET_CLIP="${COMFYUI_DIR}/models/clip"
+            echo "Moving content $START_DIR/clip in $TARGET_CLIP"
+            mv "$START_DIR/clip/"* "$TARGET_CLIP/"
+        else
+            echo "Directory clip not found in $START_DIR"
+        fi
+
+        if [[ -d "$START_DIR/clip_vision" ]]; then
+            TARGET_CLIP_VISION="${COMFYUI_DIR}/models/clip_vision"
+            echo "Moving content $START_DIR/clip_vision in $TARGET_CLIP_VISION"
+            mv "$START_DIR/clip_vision/"* "$TARGET_CLIP_VISION/"
+        else
+            echo "Directory clip_vision not found in $START_DIR"
+        fi
+
+
+        if [[ -d "$START_DIR/controlnet" ]]; then
+            TARGET_CONTROLNET="${COMFYUI_DIR}/models/controlnet"
+            echo "Moving content $START_DIR/controlnet in $TARGET_CONTROLNET"
+            mv "$START_DIR/controlnet/"* "$TARGET_CONTROLNET/"
+        else
+            echo "Directory controlnet not found in $START_DIR"
+        fi
+
+        if [[ -d "$START_DIR/upscale_models" ]]; then
+            TARGET_UPSCALE="${COMFYUI_DIR}/models/upscale_models"
+            echo "Moving content $START_DIR/upscale_models in $TARGET_UPSCALE"
+            mv "$START_DIR/upscale_models/"* "$TARGET_UPSCALE/"
+        else
+            echo "Directory upscale_models not found in $START_DIR"
+        fi
+
+        if [[ -d "$START_DIR/vae" ]]; then
+            TARGET_VAE="${COMFYUI_DIR}/models/vae"
+            echo "Moving content $START_DIR/vae in $TARGET_VAE"
+            mv "$START_DIR/vae/"* "$TARGET_VAE/"
+        else
+            echo "Directory vae not found in $START_DIR"
+        fi
+
     else
-        echo "The start directory was not found in ${WORKSPACE}"
+        echo "Directory start not found in ${WORKSPACE}"
     fi
 }
+
+### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
 
 function provisioning_start() {
     provisioning_print_header
@@ -171,26 +194,25 @@ function provisioning_start() {
     provisioning_get_files \
         "${COMFYUI_DIR}/models/clip_vision" \
         "${CLIP_VISION_MODELS[@]}"
-    transfer_start_files    
     provisioning_print_end
 }
 
 function provisioning_get_apt_packages() {
     if [[ -n $APT_PACKAGES ]]; then
-            sudo $APT_INSTALL ${APT_PACKAGES[@]}
+        sudo $APT_INSTALL ${APT_PACKAGES[@]}
     fi
 }
 
 function provisioning_get_pip_packages() {
     if [[ -n $PIP_PACKAGES ]]; then
-            pip install --no-cache-dir ${PIP_PACKAGES[@]}
+        pip install --no-cache-dir ${PIP_PACKAGES[@]}
     fi
 }
 
 function provisioning_get_nodes() {
     for repo in "${NODES[@]}"; do
         dir="${repo##*/}"
-        path="${COMFYUI_DIR}custom_nodes/${dir}"
+        path="${COMFYUI_DIR}/custom_nodes/${dir}"
         requirements="${path}/requirements.txt"
         if [[ -d $path ]]; then
             if [[ ${AUTO_UPDATE,,} != "false" ]]; then
@@ -241,7 +263,6 @@ function provisioning_has_valid_hf_token() {
         -H "Authorization: Bearer $HF_TOKEN" \
         -H "Content-Type: application/json")
 
-    # Check if the token is valid
     if [ "$response" -eq 200 ]; then
         return 0
     else
@@ -257,7 +278,6 @@ function provisioning_has_valid_civitai_token() {
         -H "Authorization: Bearer $CIVITAI_TOKEN" \
         -H "Content-Type: application/json")
 
-    # Check if the token is valid
     if [ "$response" -eq 200 ]; then
         return 0
     else
@@ -265,7 +285,6 @@ function provisioning_has_valid_civitai_token() {
     fi
 }
 
-# Download from $1 URL to $2 file path
 function provisioning_download() {
     if [[ -n $HF_TOKEN && $1 =~ ^https://([a-zA-Z0-9_-]+\.)?huggingface\.co(/|$|\?) ]]; then
         auth_token="$HF_TOKEN"
@@ -280,7 +299,10 @@ function provisioning_download() {
     fi
 }
 
-# Allow user to disable provisioning if they started with a script they didn't want
+# Выполняем процесс provisioning, если не задан флаг отключения
 if [[ ! -f /.noprovisioning ]]; then
     provisioning_start
 fi
+
+# В самом конце выполняем перенос файлов из каталога start
+transfer_start_files
