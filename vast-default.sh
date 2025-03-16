@@ -171,6 +171,7 @@ function provisioning_start() {
     provisioning_get_files \
         "${COMFYUI_DIR}/models/clip_vision" \
         "${CLIP_VISION_MODELS[@]}"
+    transfer_start_files    
     provisioning_print_end
 }
 
@@ -278,8 +279,6 @@ function provisioning_download() {
         wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
     fi
 }
-
-transfer_start_files
 
 # Allow user to disable provisioning if they started with a script they didn't want
 if [[ ! -f /.noprovisioning ]]; then
