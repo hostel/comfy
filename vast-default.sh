@@ -51,6 +51,7 @@ NODES=(
     "https://github.com/SeargeDP/SeargeSDXL"
     "https://github.com/rgthree/rgthree-comfy"
     "https://github.com/WASasquatch/was-node-suite-comfyui"
+    "https://github.com/ALatentPlace/ComfyUI_yanc"
 )
 
 WORKFLOWS=(
@@ -80,88 +81,6 @@ CLIP_MODELS=(
 CLIP_VISION_MODELS=(
 )
 
-function transfer_start_files() {
-    START_DIR="${WORKSPACE}/start"
-    if [[ -d "$START_DIR" ]]; then
-        echo "Found directory start: $START_DIR"
-
-        if [[ -d "$START_DIR/workflows" ]]; then
-            TARGET_WORKFLOWS="${COMFYUI_DIR}/user/default/workflows"
-            echo "Moving content $START_DIR/workflows in $TARGET_WORKFLOWS"
-            mv "$START_DIR/workflows/"* "$TARGET_WORKFLOWS/"
-        else
-            echo "Directory workflows not found in $START_DIR"
-        fi
-
-        if [[ -d "$START_DIR/input" ]]; then
-            TARGET_INPUT="${COMFYUI_DIR}/input"
-            echo "Moving content $START_DIR/input in $TARGET_INPUT"
-            mv "$START_DIR/input/"* "$TARGET_INPUT/"
-        else
-            echo "Directory input not found in $START_DIR"
-        fi
-
-        if [[ -d "$START_DIR/loras" ]]; then
-            TARGET_LORAS="${COMFYUI_DIR}/models/loras"
-            echo "Moving content $START_DIR/loras in $TARGET_LORAS"
-            mv "$START_DIR/loras/"* "$TARGET_LORAS/"
-        else
-            echo "Directory loras not found in $START_DIR"
-        fi
-
-        if [[ -d "$START_DIR/checkpoints" ]]; then
-            TARGET_CHECKPOINTS="${COMFYUI_DIR}/models/checkpoints"
-            echo "Moving content $START_DIR/checkpoints in $TARGET_CHECKPOINTS"
-            mv "$START_DIR/checkpoints/"* "$TARGET_CHECKPOINTS/"
-        else
-            echo "Directory checkpoints not found in $START_DIR"
-        fi
-
-        if [[ -d "$START_DIR/clip" ]]; then
-            TARGET_CLIP="${COMFYUI_DIR}/models/clip"
-            echo "Moving content $START_DIR/clip in $TARGET_CLIP"
-            mv "$START_DIR/clip/"* "$TARGET_CLIP/"
-        else
-            echo "Directory clip not found in $START_DIR"
-        fi
-
-        if [[ -d "$START_DIR/clip_vision" ]]; then
-            TARGET_CLIP_VISION="${COMFYUI_DIR}/models/clip_vision"
-            echo "Moving content $START_DIR/clip_vision in $TARGET_CLIP_VISION"
-            mv "$START_DIR/clip_vision/"* "$TARGET_CLIP_VISION/"
-        else
-            echo "Directory clip_vision not found in $START_DIR"
-        fi
-
-
-        if [[ -d "$START_DIR/controlnet" ]]; then
-            TARGET_CONTROLNET="${COMFYUI_DIR}/models/controlnet"
-            echo "Moving content $START_DIR/controlnet in $TARGET_CONTROLNET"
-            mv "$START_DIR/controlnet/"* "$TARGET_CONTROLNET/"
-        else
-            echo "Directory controlnet not found in $START_DIR"
-        fi
-
-        if [[ -d "$START_DIR/upscale_models" ]]; then
-            TARGET_UPSCALE="${COMFYUI_DIR}/models/upscale_models"
-            echo "Moving content $START_DIR/upscale_models in $TARGET_UPSCALE"
-            mv "$START_DIR/upscale_models/"* "$TARGET_UPSCALE/"
-        else
-            echo "Directory upscale_models not found in $START_DIR"
-        fi
-
-        if [[ -d "$START_DIR/vae" ]]; then
-            TARGET_VAE="${COMFYUI_DIR}/models/vae"
-            echo "Moving content $START_DIR/vae in $TARGET_VAE"
-            mv "$START_DIR/vae/"* "$TARGET_VAE/"
-        else
-            echo "Directory vae not found in $START_DIR"
-        fi
-
-    else
-        echo "Directory start not found in ${WORKSPACE}"
-    fi
-}
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
 
@@ -299,10 +218,8 @@ function provisioning_download() {
     fi
 }
 
-# Выполняем процесс provisioning, если не задан флаг отключения
+
 if [[ ! -f /.noprovisioning ]]; then
     provisioning_start
 fi
 
-# В самом конце выполняем перенос файлов из каталога start
-transfer_start_files
