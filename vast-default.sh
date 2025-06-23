@@ -50,7 +50,7 @@ NODES=(
     "https://github.com/SeargeDP/SeargeSDXL"
     "https://github.com/rgthree/rgthree-comfy"
     "https://github.com/WASasquatch/was-node-suite-comfyui"
-    "https://github.com/ALatentPlace/ComfyUI_yanc"
+    "https://github.com/ltdrdata/was-node-suite-comfyui"
 )
 
 WORKFLOWS=(
