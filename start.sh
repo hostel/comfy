@@ -18,6 +18,14 @@ function transfer_start_files() {
             echo "Directory workflows not found in $START_DIR"
         fi
 
+        if [[ -d "$START_DIR/custom_nodes" ]]; then
+            TARGET_INPUT="${COMFYUI_DIR}/custom_nodes"
+            echo "Moving content from $START_DIR/custom_nodes to $TARGET_INPUT"
+            mv "$START_DIR/custom_nodes/"* "$TARGET_INPUT/"
+        else
+            echo "Directory custom_nodes not found in $START_DIR"
+        fi
+
         if [[ -d "$START_DIR/input" ]]; then
             TARGET_INPUT="${COMFYUI_DIR}/input"
             echo "Moving content from $START_DIR/input to $TARGET_INPUT"
