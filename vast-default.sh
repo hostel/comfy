@@ -16,7 +16,7 @@ PIP_PACKAGES=(
 )
 
 NODES=(
-    #"https://github.com/ltdrdata/ComfyUI-Manager"
+    "https://github.com/ltdrdata/ComfyUI-Manager"
     #"https://github.com/cubiq/ComfyUI_essentials"
     "https://github.com/chrisgoringe/cg-use-everywhere"
     "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
