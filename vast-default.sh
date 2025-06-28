@@ -39,12 +39,14 @@ NODES=(
     "https://github.com/john-mnz/ComfyUI-Inspyrenet-Rembg"
     "https://github.com/kijai/ComfyUI-KJNodes"
     "https://github.com/Layer-norm/comfyui-lama-remover"
-    "https://github.com/shadowcz007/comfyui-mixlab-nodes"
-    "https://github.com/receyuki/comfyui-prompt-reader-node"
-    "https://github.com/kijai/ComfyUI-SUPIR"
-    "https://github.com/shiimizu/ComfyUI-TiledDiffusion"
-    "https://github.com/pythongosssss/ComfyUI-WD14-Tagger"
-    "https://github.com/Derfuu/Derfuu_ComfyUI_ModdedNodes"
+
+    # "https://github.com/shadowcz007/comfyui-mixlab-nodes"
+    # "https://github.com/receyuki/comfyui-prompt-reader-node"
+    # "https://github.com/kijai/ComfyUI-SUPIR"
+    # "https://github.com/shiimizu/ComfyUI-TiledDiffusion"
+    # "https://github.com/pythongosssss/ComfyUI-WD14-Tagger"
+    # "https://github.com/Derfuu/Derfuu_ComfyUI_ModdedNodes"
+
     "https://github.com/jags111/efficiency-nodes-comfyui"
     "https://github.com/BadCafeCode/masquerade-nodes-comfyui"
     "https://github.com/SeargeDP/SeargeSDXL"
@@ -78,10 +80,6 @@ CONTROLNET_MODELS=(
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
 
 function provisioning_start() {
-    python -m ensurepip -U
-    python -m pip install -U pip
-    python -m pip install -U setuptools
-
     provisioning_print_header
     provisioning_get_apt_packages
     provisioning_get_nodes
