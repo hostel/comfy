@@ -40,7 +40,7 @@ NODES=(
     "https://github.com/kijai/ComfyUI-KJNodes"
     "https://github.com/Layer-norm/comfyui-lama-remover"
 
-    # "https://github.com/shadowcz007/comfyui-mixlab-nodes"
+    # "https://github.com/shadowcz007/comfyui-mixlab-nodes" TODO: https://github.com/MixLabPro/comfyui-mixlab-nodes/issues/412
     "https://github.com/receyuki/comfyui-prompt-reader-node"
     "https://github.com/kijai/ComfyUI-SUPIR"
     "https://github.com/shiimizu/ComfyUI-TiledDiffusion"
