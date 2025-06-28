@@ -41,11 +41,11 @@ NODES=(
     "https://github.com/Layer-norm/comfyui-lama-remover"
 
     # "https://github.com/shadowcz007/comfyui-mixlab-nodes"
-    # "https://github.com/receyuki/comfyui-prompt-reader-node"
-    # "https://github.com/kijai/ComfyUI-SUPIR"
-    # "https://github.com/shiimizu/ComfyUI-TiledDiffusion"
-    # "https://github.com/pythongosssss/ComfyUI-WD14-Tagger"
-    # "https://github.com/Derfuu/Derfuu_ComfyUI_ModdedNodes"
+    "https://github.com/receyuki/comfyui-prompt-reader-node"
+    "https://github.com/kijai/ComfyUI-SUPIR"
+    "https://github.com/shiimizu/ComfyUI-TiledDiffusion"
+    "https://github.com/pythongosssss/ComfyUI-WD14-Tagger"
+    "https://github.com/Derfuu/Derfuu_ComfyUI_ModdedNodes"
 
     "https://github.com/jags111/efficiency-nodes-comfyui"
     "https://github.com/BadCafeCode/masquerade-nodes-comfyui"
