@@ -90,6 +90,14 @@ function transfer_start_files() {
             echo "Directory vae not found in $START_DIR"
         fi
 
+        if [[ -d "$START_DIR/unet" ]]; then
+            TARGET_UNET="${COMFYUI_DIR}/models/unet"
+            echo "Moving content from $START_DIR/unet to $TARGET_DEFFUSION"
+            mv "$START_DIR/unet/"* "$TARGET_DEFFUSION/"
+        else
+            echo "Directory unet not found in $START_DIR"
+        fi
+
         if [[ -d "$START_DIR/diffusion_models" ]]; then
             TARGET_DEFFUSION="${COMFYUI_DIR}/models/diffusion_models"
             echo "Moving content from $START_DIR/diffusion_models to $TARGET_DEFFUSION"
