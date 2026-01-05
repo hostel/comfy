@@ -92,8 +92,8 @@ function transfer_start_files() {
 
         if [[ -d "$START_DIR/unet" ]]; then
             TARGET_UNET="${COMFYUI_DIR}/models/unet"
-            echo "Moving content from $START_DIR/unet to $TARGET_DEFFUSION"
-            mv "$START_DIR/unet/"* "$TARGET_DEFFUSION/"
+            echo "Moving content from $START_DIR/unet to $TARGET_UNET"
+            mv "$START_DIR/unet/"* "$TARGET_UNET/"
         else
             echo "Directory unet not found in $START_DIR"
         fi
@@ -105,7 +105,6 @@ function transfer_start_files() {
         else
             echo "Directory diffusion_models not found in $START_DIR"
         fi
-
 
         TARGET_IPADAPTER="${COMFYUI_DIR}/models/ipadapter"
         if [[ ! -d "$TARGET_IPADAPTER" ]]; then
