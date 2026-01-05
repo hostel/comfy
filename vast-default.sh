@@ -17,7 +17,6 @@ PIP_PACKAGES=(
 
 NODES=(
     "https://github.com/ltdrdata/ComfyUI-Manager"
-    #"https://github.com/cubiq/ComfyUI_essentials"
     "https://github.com/chrisgoringe/cg-use-everywhere"
     "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
     "https://github.com/Fannovel16/comfyui_controlnet_aux"
@@ -40,7 +39,6 @@ NODES=(
     "https://github.com/kijai/ComfyUI-KJNodes"
     "https://github.com/Layer-norm/comfyui-lama-remover"
 
-    # "https://github.com/shadowcz007/comfyui-mixlab-nodes" TODO: https://github.com/MixLabPro/comfyui-mixlab-nodes/issues/412
     "https://github.com/receyuki/comfyui-prompt-reader-node"
     "https://github.com/kijai/ComfyUI-SUPIR"
     "https://github.com/shiimizu/ComfyUI-TiledDiffusion"
@@ -53,6 +51,17 @@ NODES=(
     "https://github.com/rgthree/rgthree-comfy"
     "https://github.com/WASasquatch/was-node-suite-comfyui"
     "https://github.com/ltdrdata/was-node-suite-comfyui"
+
+    # Stage 1
+    "https://github.com/AlekPet/ComfyUI_Custom_Nodes_AlekPet"
+    "https://github.com/logtd/ComfyUI-Fluxtapoz"
+    "https://github.com/bash-j/mikey_nodes"
+    "https://github.com/cdb-boop/comfyui-image-round"
+
+    # wan studio upscale
+    "https://github.com/pollockjj/ComfyUI-MultiGPU"
+    "https://github.com/Steudio/ComfyUI_Steudio"
+    "https://github.com/vrgamegirl19/comfyui-vrgamedevgirl"
 )
 
 WORKFLOWS=(
