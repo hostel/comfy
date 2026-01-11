@@ -38,6 +38,7 @@ NODES=(
     "https://github.com/john-mnz/ComfyUI-Inspyrenet-Rembg"
     "https://github.com/kijai/ComfyUI-KJNodes"
     "https://github.com/Layer-norm/comfyui-lama-remover"
+    "https://github.com/cubiq/ComfyUI_essentials"
 
     "https://github.com/receyuki/comfyui-prompt-reader-node"
     "https://github.com/kijai/ComfyUI-SUPIR"
